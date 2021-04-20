@@ -13,6 +13,7 @@
 		36700CE0262F634B00912E7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36700CDE262F634B00912E7C /* Main.storyboard */; };
 		36700CE2262F634F00912E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36700CE1262F634F00912E7C /* Assets.xcassets */; };
 		36700CE5262F634F00912E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36700CE3262F634F00912E7C /* LaunchScreen.storyboard */; };
+		36700CEE262F656600912E7C /* LargeLibraryTest in Resources */ = {isa = PBXBuildFile; fileRef = 36700CED262F656600912E7C /* LargeLibraryTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		36700CE1262F634F00912E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36700CE4262F634F00912E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36700CE6262F634F00912E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36700CED262F656600912E7C /* LargeLibraryTest */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LargeLibraryTest; path = LargeDocument/LargeLibraryTest; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		36700CCC262F634B00912E7C = {
 			isa = PBXGroup;
 			children = (
+				36700CED262F656600912E7C /* LargeLibraryTest */,
 				36700CD7262F634B00912E7C /* LargeDocument */,
 				36700CD6262F634B00912E7C /* Products */,
 			);
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36700CEE262F656600912E7C /* LargeLibraryTest in Resources */,
 				36700CE5262F634F00912E7C /* LaunchScreen.storyboard in Resources */,
 				36700CE2262F634F00912E7C /* Assets.xcassets in Resources */,
 				36700CE0262F634B00912E7C /* Main.storyboard in Resources */,
