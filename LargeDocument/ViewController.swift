@@ -45,21 +45,39 @@ class Document: UIDocument {
     var trackURLs: [URL]?
     
     override func contents(forType typeName: String) throws -> Any {
-        var wrappers = [String: FileWrapper]()
-        
-        var trackWrappers = [String: FileWrapper]()
-        for trackURL in trackURLs ?? [] {
-            let fileName = trackURL.lastPathComponent
-            do {
-                let wrapper = try FileWrapper(url: trackURL, options: [])
-                trackWrappers[fileName] = wrapper
-            } catch {
-                print("error", error)
+        let wrappers = [String: FileWrapper]()
+        return FileWrapper(directoryWithFileWrappers: wrappers)
+    }
+    
+    override func save(to url: URL, for saveOperation: UIDocument.SaveOperation, completionHandler: ((Bool) -> Void)? = nil) {
+        let fileCoordinator = NSFileCoordinator(filePresenter: self)
+        fileCoordinator.coordinate(writingItemAt: self.fileURL, options: .forMerging, error: nil) { newURL in
+            let success = self.fulfillUnsavedChanges()
+            self.fileModificationDate = Date()
+            if let completionHandler = completionHandler {
+                DispatchQueue.main.async {
+                    completionHandler(success)
+                }
             }
         }
-        let trackDirectory = FileWrapper(directoryWithFileWrappers: trackWrappers)
-        wrappers["Tracks"] = trackDirectory
+        super.save(to: url, for: saveOperation, completionHandler: completionHandler)
+    }
+    
+    private func fulfillUnsavedChanges() -> Bool {
+        let fileManager = FileManager.default
+        var success = true
 
-        return FileWrapper(directoryWithFileWrappers: wrappers)
+        for trackURL in trackURLs ?? [] {
+            let targetURL = fileURL.appendingPathComponent(trackURL.lastPathComponent)
+            do {
+                print("copying: ", targetURL)
+                try fileManager.copyItem(at: trackURL, to: targetURL)
+            } catch {
+                print("Failed to copy a file: \(error)")
+                success = false
+            }
+        }
+        
+        return success
     }
 }
