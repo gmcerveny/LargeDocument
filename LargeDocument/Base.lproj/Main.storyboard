@@ -24,6 +24,15 @@
                                     <action selector="saveTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vn0-V6-hpX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK8-Sy-EQo">
+                                <rect key="frame" x="190" y="471" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Load"/>
+                                <connections>
+                                    <action selector="loadTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZP-LN-KVL"/>
+                                    <action selector="saveTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zii-Yp-3BT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
