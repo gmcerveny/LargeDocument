@@ -74,9 +74,9 @@ class Document: UIDocument {
         let fileWrapper = FileWrapper(directoryWithFileWrappers: [:])
         
         var library = [String: Any]()
-        library["Tracks"] = [[String: Any]]()
-        library["Setlists"] = [[String: Any]]()
-        library["SetTracks"] = [[String: Any]]()
+        library["Tracks"] = [["a trackname": "track data"]]
+        library["Setlists"] = [["a setlist": "setlist data"]]
+        library["SetTracks"] = [["a track in a set": "set track data"]]
         
         let libraryData: Data = try! NSKeyedArchiver.archivedData(withRootObject: library, requiringSecureCoding: false)
         
@@ -86,16 +86,17 @@ class Document: UIDocument {
     }
     
     override func save(to url: URL, for saveOperation: UIDocument.SaveOperation, completionHandler: ((Bool) -> Void)? = nil) {
-        let fileCoordinator = NSFileCoordinator(filePresenter: self)
-        fileCoordinator.coordinate(writingItemAt: self.fileURL, options: .forMerging, error: nil) { newURL in
-            let success = self.fulfillUnsavedChanges()
-            if let completionHandler = completionHandler {
-                DispatchQueue.main.async {
-                    completionHandler(success)
+        super.save(to: url, for: saveOperation) { (success) in
+            let fileCoordinator = NSFileCoordinator(filePresenter: self)
+            fileCoordinator.coordinate(writingItemAt: self.fileURL, options: .forMerging, error: nil) { newURL in
+                let success = self.fulfillUnsavedChanges()
+                if let completionHandler = completionHandler {
+                    DispatchQueue.main.async {
+                        completionHandler(success)
+                    }
                 }
             }
         }
-        super.save(to: url, for: saveOperation, completionHandler: completionHandler)
     }
     
     private func fulfillUnsavedChanges() -> Bool {
