@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="saveTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vn0-V6-hpX"/>
+                                    <action selector="saveTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tTO-Gk-i0J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK8-Sy-EQo">
@@ -29,8 +29,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Load"/>
                                 <connections>
-                                    <action selector="loadTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZP-LN-KVL"/>
-                                    <action selector="saveTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zii-Yp-3BT"/>
+                                    <action selector="loadTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pVa-HS-NIO"/>
                                 </connections>
                             </button>
                         </subviews>

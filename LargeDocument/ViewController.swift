@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         try? FileManager.default.removeItem(at: fileURL)
         
         let doc = Document(fileURL: fileURL)
-        doc.trackURLs = Bundle.main.urls(forResourcesWithExtension: "wav", subdirectory: "LargeLibraryTest")
+        doc.trackURLs = Bundle.main.urls(forResourcesWithExtension: "txt", subdirectory: "LargeLibraryTest")
         
         doc.save(to: fileURL, for: .forCreating) {
             success in
@@ -162,6 +162,7 @@ class Document: UIDocument {
                 try fileManager.copyItem(at: trackFileURL, to: targetURL)
                 print("Track Copied:", trackName)
             } catch {
+                print("Failed:", error)
                 success = false
             }
         }
